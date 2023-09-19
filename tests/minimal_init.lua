@@ -32,6 +32,15 @@ function M.setup()
   vim.env.XDG_DATA_HOME = M.root(".tests/data")
   vim.env.XDG_STATE_HOME = M.root(".tests/state")
   vim.env.XDG_CACHE_HOME = M.root(".tests/cache")
+
+  require("flutter-tools").setup({
+    lsp = {
+      settings = {
+        renameFilesWithClasses = "always", -- "always"
+        updateImportsOnRename = true,    -- Whether to update imports and other directives when files are renamed. Required for `FlutterRename` command.
+      }
+    }
+  })
 end
 
 vim.o.swapfile = false
